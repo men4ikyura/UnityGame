@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FollowObject : MonoBehaviour
 {
-    public Transform target; // Здесь указывается объект, к которому будет прикреплена камера
+    public Transform target;
 
     void Update()
     {

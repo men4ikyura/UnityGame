@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartScene : MonoBehaviour
+public class Scene : MonoBehaviour
 {
-
-    void Update()
+    private void Update()
     {
-       
+        if (Input.GetKeyDown(KeyCode.Space))
+            Time.timeScale = 1f;
     }
 }

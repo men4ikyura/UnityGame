@@ -7,48 +7,26 @@ using UnityEngine.UIElements;
 
 public class Moving : MonoBehaviour
 {
-    private int changeMoveSide;
-    private int changeMoveForward;
     public float speed;
     public static  Vector3 initialPosition; 
 
-    private void Start()
-    {
-        
-        initialPosition = transform.position;
-    }
+    private void Start() => initialPosition = transform.position;
    
     void Update()
     {
-        ManageMoving();
-        Time.timeScale = 1f;
-    }
+        var moveHorizontal = 0f;
+        var moveVertical = 0f;
 
-    public void ManageMoving()
-    {
-        
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            changeMoveSide = -1;
-            changeMoveForward = 0;
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            changeMoveSide = 1;
-            changeMoveForward = 0;
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            changeMoveSide = 0;
-            changeMoveForward = 1;
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            changeMoveSide = 0;
-            changeMoveForward = -1;
-        }
+        if (Input.GetKey(KeyCode.A))
+            moveHorizontal = -1f;
+        else if (Input.GetKey(KeyCode.D))
+            moveHorizontal = 1f;
+        if (Input.GetKey(KeyCode.W))
+            moveVertical = 1f;
+        else if (Input.GetKey(KeyCode.S))
+            moveVertical = -1f;
 
-        transform.position = new Vector3(changeMoveSide * speed + transform.position.x, transform.position.y,
-            changeMoveForward * speed + transform.position.z);
+        var movement = new Vector3(moveHorizontal * speed * Time.timeScale, 0f, moveVertical * speed * Time.timeScale);
+        transform.position += movement;
     }
 }
