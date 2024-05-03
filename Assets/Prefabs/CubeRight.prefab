@@ -119,5 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changer: -1
-  speed: 0.01
-  extremecoordinate: 10
+  speed: 0.02
+  extremeCoordinate: 10

@@ -10,6 +10,7 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
+        ModelScore.score = 5;
     }
 
     public void ExitGame()
