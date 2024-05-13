@@ -14,7 +14,7 @@ public class SpawnAccelerator : MonoBehaviour
 
     void Spawn()
     {
-        for (var i = 0; i < Random.Range(0,4); i++)
+        for (var i = 0; i < 5; i++)
         {
             Debug.Log(i);
             var randomX = Random.Range(-8, 8); 

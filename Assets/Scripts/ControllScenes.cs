@@ -9,7 +9,7 @@ public class SceneController : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
-        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
         ModelScore.score = 5;
     }
 

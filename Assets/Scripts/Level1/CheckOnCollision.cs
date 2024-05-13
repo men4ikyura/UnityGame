@@ -1,33 +1,23 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CheckOnCollision: MonoBehaviour
+public class CheckOnCollision : MonoBehaviour
 {
-    public ControllText controller;
-    private bool IsProtected = false;
+    public ControllEffect controllerEffect;
+    public ControllText controllerText;
+    public bool isProtected = false;
+
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Cube") && !IsProtected)
+        if (collision.gameObject.CompareTag("Cube") && !isProtected)
         {
-            SceneManager.LoadScene(1);
-            controller.ControllScore();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            controllerText.ControllScore();
         }
 
-       
-        if (collision.gameObject.CompareTag("Accelerator") && !IsProtected)
-        {
-            IsProtected = true;
-            StartCoroutine(EnableColliderAfterDelay(5.0f));
-        }
-
-        IEnumerator EnableColliderAfterDelay( float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            IsProtected = false;
-        }
+        if (collision.gameObject.CompareTag("Accelerator"))
+            controllerEffect.ControllEfect(); 
     }
 }
+

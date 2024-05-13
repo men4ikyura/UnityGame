@@ -15,11 +15,12 @@ public class CheckOnCollision2 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Debug.Log(rb);
     }
+    
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             controller.ControllScore();
         }
     }
